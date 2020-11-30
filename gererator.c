@@ -22,6 +22,12 @@ california:
 miami:
 	1Z2RV706YW29181885
 	1Z2RV706YW28555509
+
+USPS:
+	9200190249260xxxxxxxxx
+	9200 1902 4926 0xxx xxxx xx
+	x = 8-9
+	x = 0-2
 	
  */
 
@@ -30,21 +36,17 @@ void	print_random(char *tracking, int count)
 {
 	int i;
 	int j;
-	int num;
-	int k = 0;
 
 	printf("https://t.17track.net/en#nums=");
 	for (i = 0; i < count; i++)
 	{
 		for (j = 0; j < strlen(tracking); j++)
 		{
-			if (tracking[k] != 'x')
-				printf("%c", tracking[k]);
-			else if (tracking[k] == 'x')
+			if (tracking[j] != 'x')
+				printf("%c", tracking[j]);
+			else if (tracking[j] == 'x')
 				printf("%d", rand() % 10);
-			k++;
 		}
-		k = 0;
 		if (i != count - 1)
 			printf(",");
 	}
@@ -65,7 +67,6 @@ int		main(int ac, char **av)
 	scanf("%d", &count);
 
 	print_random(tracking, count);
-
 	return 0;
 }
 
